@@ -1,0 +1,14 @@
+---
+import { Icon } from 'astro-icon'
+
+// const {id} = Astro.props;
+---
+
+<button class="p-4 hover:text-blue-200 flex flex-col justify-end" onclick={`window.dialog.showModal()`}><Icon name="mdi:plus-circle-outline" height="20" width="20"/></button>
+
+<dialog id="dialog" class="p-4 bg-gray-600 border-black border backdrop:opacity-20 backdrop:fixed backdrop:top-0 backdrop:left-0 backdrop:right-0 backdrop:bottom-0 backdrop:bg-gray-800">
+  <slot name="main" />
+  <form method="dialog">
+    <slot name="close" />
+  </form>
+</dialog>

@@ -1,10 +1,25 @@
 ---
 import { Icon } from 'astro-icon'
+import Modal from '../components/Modal.astro';
 ---
 
 <div class="flex flex-col text-xl justify-start text-blue-400 border-r-black border-r left-0 w-14 h-full">
     <a href="/" class="hover:text-blue-200 flex flex-col justify-end p-4"><Icon name="mdi:home" height="20" width="20"/></a>
     <a class="p-4 hover:text-blue-200 flex flex-col justify-end" href="/chart/"><Icon name="mdi:chart-line" height="20" width="20"/></a>
     <a class="p-4 hover:text-blue-200 flex flex-col justify-end" href="/list/"><Icon name="mdi:format-list-bulleted" height="20" width="20"/></a>
-    <a class="p-4 hover:text-blue-200 flex flex-col justify-end" href="/add/"><Icon name="mdi:plus-circle-outline" height="20" width="20"/></a>
+    <Modal id='dialog'>
+        <main slot='main'>
+            <form class="flex flex-col justify-center p-1">
+                <label>Sys</label>
+                <input type="number" value="120"/>
+                <label>Dys</label>
+                <input type="number" value="80"/>
+                <label>Puls</label>
+                <input type="number" value="60"/>
+            </form>
+            <hr />
+        </main>
+        <button slot='close'>Close modal</button>
+    </Modal>
 </div>
+
